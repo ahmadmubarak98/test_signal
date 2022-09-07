@@ -1,0 +1,41 @@
+.home_page {
+  $colors: (1 rgba(45, 137, 233, 0.08) rgba(0, 0, 0, 0.8) #2f89eb30 #2f89e9)
+    (
+      2 rgba(76, 175, 80, 0.08) rgba(0, 0, 0, 0.79) rgba(139, 195, 74, 0.3)
+        #8bc34a
+    )
+    (
+      3 rgba(255, 193, 7, 0.11) rgba(0, 0, 0, 0.79) rgba(255, 193, 7, 0.15)
+        #ffc107
+    )
+    (
+      4 rgba(156, 39, 176, 0.05) rgba(0, 0, 0, 0.79) rgba(176, 82, 191, 0.2)
+        rgba(156, 39, 176, 0.78)
+    );
+
+  @each $i in $colors {
+    .userInfo:nth-child(n + #{nth($i, 1)}) {
+      background: nth($i, 2);
+      color: nth($i, 3);
+      .deviceInfo-container {
+        .deviceInfo {
+          border: 2px solid nth($i, 4);
+          box-shadow: -3px 3px 9px nth($i, 4);
+
+          h3,
+          h6,
+          span {
+            color: nth($i, 5);
+          }
+        }
+        .DeviceNumber h3 {
+          border-right: 7px solid nth($i, 5);
+        }
+        .timer {
+          color: nth($i, 5);
+          text-align: center;
+        }
+      }
+    }
+  }
+}
